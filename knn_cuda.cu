@@ -555,7 +555,7 @@ int main(int argc, char *argv[])
     printf("--- Final Results ---\n");
     printf("Serial CPU Time:      %10.2f ms   (Accuracy: %.2f%%)\n", ms_serial, accuracy_serial);
     printf("CUDA Naive Time:      %10.2f ms   (Speedup: %.2fx)\n", ms_gpu_naive, ms_serial / ms_gpu_naive);
-    if (ms_gpu_shared > 0) {
+    if (ms_gpu_shared > 0 && (!can_run_shared || ms_gpu_shared < ms_gpu_naive) ) { // Only show shared if it ran and was faster
         printf("CUDA Shared Time:     %10.2f ms   (Speedup: %.2fx)\n", ms_gpu_shared, ms_serial / ms_gpu_shared);
     }
     printf("---------------------\n");

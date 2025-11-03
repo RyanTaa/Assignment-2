@@ -18,8 +18,9 @@ echo "SLURM_NODELIST: ${SLURM_NODELIST}"
 
 # Load modules (adjust versions if necessary)
 module purge
-module load gcc/11.2.0
-module load cuda/11.7.0   # Athena has CUDA 11.7
+# *** MODIFIED: Using available module versions on Athena ***
+module load gcc/11.4.0
+module load cuda/12.2.0
 
 # --- Compilation ---
 # Clean previous builds and build everything
@@ -34,14 +35,16 @@ fi
 echo "Compilation complete."
 
 # --- Set Paths to Datasets ---
-# !! IMPORTANT: Update these paths to your dataset locations !!
-DATA_DIR="./datasets"
+# !! IMPORTANT: Update this path to your dataset directory !!
+DATA_DIR="/path/to/your/datasets"
+
+# *** MODIFIED: Using hyphenated names as requested ***
 SMALL_TRAIN="${DATA_DIR}/small-train.arff"
 SMALL_TEST="${DATA_DIR}/small-test.arff"
 MEDIUM_TRAIN="${DATA_DIR}/medium-train.arff"
 MEDIUM_TEST="${DATA_DIR}/medium-test.arff"
 LARGE_TRAIN="${DATA_DIR}/large-train.arff"
-LARGE_TEST="${DATA_DIT}/large-test.arff"
+LARGE_TEST="${DATA_DIR}/large-test.arff" # Fixed typo DATA_DIT -> DATA_DIR
 
 # --- Set Parameters ---
 K_VALUE=5
@@ -60,3 +63,4 @@ echo "--- Running on Large Dataset (k=${K_VALUE}, block_size=${BLOCK_SIZE}) ---"
 ./knn_cuda "${LARGE_TRAIN}" "${LARGE_TEST}" ${K_VALUE} ${BLOCK_SIZE}
 
 echo "Job finished at $(date)"
+
