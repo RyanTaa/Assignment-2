@@ -35,13 +35,13 @@ echo "Compilation complete."
 
 # --- Set Paths to Datasets ---
 # !! IMPORTANT: Update these paths to your dataset locations !!
-DATA_DIR="/path/to/your/datasets"
-SMALL_TRAIN="${DATA_DIR}/small_train.arff"
-SMALL_TEST="${DATA_DIR}/small_test.arff"
-MEDIUM_TRAIN="${DATA_DIR}/medium_train.arff"
-MEDIUM_TEST="${DATA_DIR}/medium_test.arff"
-LARGE_TRAIN="${DATA_DIR}/large_train.arff"
-LARGE_TEST="${DATA_DIT}/large_test.arff"
+DATA_DIR="./datasets"
+SMALL_TRAIN="${DATA_DIR}/small-train.arff"
+SMALL_TEST="${DATA_DIR}/small-test.arff"
+MEDIUM_TRAIN="${DATA_DIR}/medium-train.arff"
+MEDIUM_TEST="${DATA_DIR}/medium-test.arff"
+LARGE_TRAIN="${DATA_DIR}/large-train.arff"
+LARGE_TEST="${DATA_DIT}/large-test.arff"
 
 # --- Set Parameters ---
 K_VALUE=5
