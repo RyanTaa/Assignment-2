@@ -1,5 +1,7 @@
 #include "arff_token.h"
 
+
+
 std::string arff_token2str(ArffTokenEnum type) {
     switch(type) {
     case RELATION:      return "RELATION";
@@ -16,6 +18,8 @@ std::string arff_token2str(ArffTokenEnum type) {
     default:            return "UNKNOWN";
     }
 }
+
+
 
 ArffToken::ArffToken(const std::string& _str, ArffTokenEnum _token) :
     m_str(_str), m_enum(_token) {

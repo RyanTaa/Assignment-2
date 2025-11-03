@@ -1,5 +1,6 @@
 #include <arff_value.h>
 
+
 std::string arff_value2str(ArffValueEnum e) {
     switch(e) {
     case INTEGER: return "INTEGER";
@@ -11,6 +12,9 @@ std::string arff_value2str(ArffValueEnum e) {
     default:      return "UNKNOWN";
     }
 }
+
+
+
 
 ArffValue::ArffValue(int32 i/*=0*/): m_int(i),
                                      m_float(0.0),

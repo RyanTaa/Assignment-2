@@ -1,6 +1,8 @@
 #include <arff_scanner.h>
 
+
 const char ArffScanner::NEWLINE = '\n';
+
 
 ArffScanner::ArffScanner(const std::string& _file): m_file(_file),
                                             m_line((int64)0),

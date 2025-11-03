@@ -1,12 +1,13 @@
 #include "arff_data.h"
 
+
+
 ArffData::ArffData(): m_rel(""),
                       m_nominals(),
                       m_formats(),
                       m_num_attrs(0),
                       m_attrs(),
                       m_num_instances(0),
-                      m_num_classes(0),
                       m_instances() {
 }
 
@@ -35,25 +36,6 @@ std::string ArffData::get_relation_name() const {
 
 int32 ArffData::num_attributes() const {
     return m_num_attrs;
-}
-
-int32 ArffData::num_classes() {
-    if(m_num_classes != 0)
-        return m_num_classes;
-        
-    int32 maxValue = 0;
-
-    for(int i = 0; i < m_num_instances; i++)
-    {
-        int32 Class = m_instances[i]->get(m_num_attrs-1)->operator int32();
-
-        if(Class > maxValue)
-            maxValue = Class;
-    }
-    
-    m_num_classes = maxValue+1;
-    
-    return m_num_classes;
 }
 
 void ArffData::add_attr(ArffAttr* attr) {
@@ -159,19 +141,8 @@ void ArffData::_cross_check_instance(ArffInstance* inst) {
                   arff_value2str(attType).c_str(),
                   arff_value2str(valType).c_str());
         }
+        ///@todo: Check for date-format mismatch
     }
 }
 
-float* ArffData::get_dataset_matrix() {
-
-    int num_instances = this->num_instances();
-    int num_attributes = this->num_attributes();    
-    
-    float* matrix = (float*) malloc (num_instances * num_attributes * sizeof(float));
-
-    for(int i = 0; i < num_instances; i++)
-        for(int j = 0; j < num_attributes; j++)
-            matrix[i*num_attributes + j] = this->get_instance(i)->get(j)->operator float();
-
-    return matrix;
-}
+///@todo: implement the method write_arff

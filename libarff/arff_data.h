@@ -53,8 +53,6 @@ public:
      * @return number
      */
     int32 num_attributes() const;
-    
-    int32 num_classes();
 
     /**
      * @brief Add an attribute
@@ -125,14 +123,6 @@ public:
     std::string get_date_format(const std::string& name);
 
     /**
-     * @brief Returns the dataset as a raw matrix
-     * @return pointer
-     *
-     * Note that this pointer will still be owned by this class!
-     */
-    float* get_dataset_matrix();
-
-    /**
      * @brief Prepare an ARFF file from this object
      * @param file file to be written to
      */
@@ -155,7 +145,6 @@ private:
     ArffDateFormat m_formats;
     /** number of attributes */
     int32 m_num_attrs;
-    int32 m_num_classes;
     /** attributes */
     std::vector<ArffAttr*> m_attrs;
     /** number of instances */
