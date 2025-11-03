@@ -19,8 +19,8 @@ echo "SLURM_NODELIST: ${SLURM_NODELIST}"
 # Load modules (adjust versions if necessary)
 module purge
 # *** MODIFIED: Using available module versions on Athena ***
-module load gcc/11.4.0
-module load cuda/12.2.0
+module load gcc/10.5.0
+module load cuda/12.3
 
 # --- Compilation ---
 # Clean previous builds and build everything
