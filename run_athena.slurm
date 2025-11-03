@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name=knn_cuda
-#SBATCH --output=knn_cuda_%j.out
-#SBATCH --error=knn_cuda_%j.err
+#SBATCH --output=output_knn.out
+#SBATCH --error=error_knn.err
 #SBATCH --partition=gpu          # Request the GPU partition
 #SBATCH --gres=gpu:1             # Request one GPU
 #SBATCH --nodes=1
